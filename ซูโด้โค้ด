@@ -1,0 +1,41 @@
+BEGIN
+
+    OUTPUT "โปรแกรมประเมินสุขภาพ"
+
+    // ฟังก์ชันที่ 1 : คำนวณ BMI
+    INPUT weight
+    INPUT height
+
+    height_m ← height / 100
+
+    bmi ← weight / (height_m × height_m)
+
+    OUTPUT bmi
+
+    IF bmi < 18.5 THEN
+        OUTPUT "ผอม"
+    ELSE IF bmi < 23 THEN
+        OUTPUT "ปกติ"
+    ELSE IF bmi < 25 THEN
+        OUTPUT "ท้วม"
+    ELSE
+        OUTPUT "อ้วน"
+    END IF
+
+
+    // ฟังก์ชันที่ 2 : คำนวณ BMR
+    INPUT age
+    INPUT gender
+
+    IF gender = 1 THEN
+        bmr ← (10 × weight) + (6.25 × height) - (5 × age) + 5
+    ELSE IF gender = 2 THEN
+        bmr ← (10 × weight) + (6.25 × height) - (5 × age) - 161
+    ELSE
+        OUTPUT "กรุณาใส่ 1 หรือ 2"
+    END IF
+
+    OUTPUT bmr
+    OUTPUT "กิโลแคลอรีต่อวัน"
+
+END
